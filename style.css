@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+:root {
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --desaturated-dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: var(--light-grayish-blue);
+    color: var(--very-dark-grayish-blue);
+}
+
+p {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90vw;
+    max-width: 400px;
+}
+
+.card > img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+    margin: 5px auto;
+}
+
+.content > h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.content > p {
+    color: var(--desaturated-dark-blue);
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.info > h5 {
+    font-weight: 700;
+}
+
+.info > p {
+    color: var(--grayish-blue);
+}
+
+#share {
+    background-color: var(--light-grayish-blue);
+    border-radius: 50%;
+    border-color: transparent;
+    padding: 7px;
+}
+
+@media (min-width: 768px) {
+    .card {
+        max-width: 730px;
+        display: flex;
+    }
+    .card > img {
+        width: 40%;
+        height: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 20px;
+    }
+    .content {
+        justify-content: center;
+        padding: 40px;
+    }
+    .content > h4 {
+        font-size: 1.5rem;
+    }
+    .content > p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1440px){
+    .card{
+        max-width: 830px;
+    }
+    .card > img{
+        width: 300px;
+    }
+    .content{padding: 32px 40px ;}
+}
