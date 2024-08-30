@@ -33,6 +33,7 @@ main {
 }
 
 .card {
+    position: relative;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -92,12 +93,69 @@ main {
 }
 
 #share {
+    z-index: 1;
+    border: none;
     background-color: var(--light-grayish-blue);
     border-radius: 50%;
-    border-color: transparent;
-    padding: 7px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+#share:hover,
+#share:focus {
+    background-color: var(--desaturated-dark-blue);
+}
+
+#share:hover img,
+#share:focus img {
+    filter: brightness(0) invert(1);
+}
+
+.share-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--very-dark-grayish-blue);
+    padding: 16px 32px;
+    color: var(--grayish-blue);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.share-overlay p {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-right: 21px;
+    margin-bottom: 5px;
+}
+
+.share-overlay a {
+    margin-right: 15px;
+}
+
+.active {
+    opacity: 1;
+    visibility: visible ;
+    padding: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+    .share-overlay p {
+        letter-spacing: 3px;
+        margin-right: 10px;
+    }
+}
 @media (min-width: 768px) {
     .card {
         max-width: 730px;
@@ -120,14 +178,48 @@ main {
     .content > p {
         font-size: 1rem;
     }
+    .share-overlay {
+        position: absolute;
+        left: 65%;
+        bottom: 25%;
+        width: 40%;
+        border-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        justify-content: center;
+        position: absolute;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 68%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--very-dark-grayish-blue);
+        }
+    }
+    .active{
+        padding: 10px;
+    }
 }
 
-@media (min-width: 1440px){
-    .card{
+@media (min-width: 1440px) {
+    .card {
         max-width: 830px;
     }
-    .card > img{
+    .card > img {
         width: 300px;
     }
-    .content{padding: 32px 40px ;}
+    .content {
+        padding: 32px 40px;
+    }
+    .share-overlay {
+        width: 32%;
+        left: 75.5%;
+        bottom: 28%;
+        &::after {
+            left: 55%;
+        }
+    }
 }
